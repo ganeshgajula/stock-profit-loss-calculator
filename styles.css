@@ -25,7 +25,7 @@ input::placeholder {
 #wrapper-container {
   background-color: #003398;
   max-width: 1100px;
-  margin: auto;
+  margin: 1rem auto 0;
   padding: 4rem 0rem;
   border-radius: 1rem;
 }
@@ -91,14 +91,22 @@ button {
   font-weight: 600;
 }
 
+.reset {
+  margin-left: 1rem;
+  background-color: #fff;
+  color: #35ce59;
+  border: 1px solid #35ce59;
+}
+
 .footer-header {
   text-align: center;
 }
 
 .social {
   text-align: center;
-  align-self: flex-end;
+  align-self: flex-start;
   margin-top: 4rem;
+  max-width: 14px;
 }
 
 .social i {
@@ -117,4 +125,162 @@ button {
 }
 .social .fa-dev:hover {
   color: #08090a;
+}
+
+@media (max-width: 359px) {
+  #wrapper-container {
+    max-width: 270px;
+    margin: auto;
+    padding: 1rem 0.5rem;
+  }
+
+  #wrapper {
+    max-width: 260px;
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .wrapper-left,
+  .wrapper-right {
+    max-width: 220px;
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  img {
+    margin-top: 1rem;
+  }
+  input {
+    max-width: 250px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  #resultText {
+    text-align: center;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+
+  .reset {
+    margin: 1rem auto 0;
+  }
+
+  .social {
+    display: none;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 548px) {
+  #wrapper-container {
+    max-width: 350px;
+    margin: auto;
+    padding: 1rem 0.8rem;
+  }
+
+  #wrapper {
+    max-width: 340px;
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .wrapper-left,
+  .wrapper-right {
+    max-width: 320px;
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #resultText {
+    text-align: center;
+  }
+  h1 {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  input {
+    max-width: 250px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+
+  .reset {
+    margin: 1rem auto 0;
+  }
+
+  .social {
+    display: none;
+  }
+}
+
+@media (min-width: 549px) and (max-width: 800px) {
+  #wrapper-container {
+    max-width: 550px;
+    margin: auto;
+    padding: 1rem 0.8rem;
+  }
+
+  #wrapper {
+    max-width: 540px;
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .wrapper-left,
+  .wrapper-right {
+    max-width: 520px;
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #resultText {
+    text-align: center;
+  }
+  h1 {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  input {
+    max-width: 250px;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+
+  .reset {
+    margin: 1rem auto 0;
+  }
+
+  .social {
+    display: none;
+  }
 }
