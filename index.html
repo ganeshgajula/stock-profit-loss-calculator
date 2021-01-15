@@ -4,18 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
     <title>Stock Profit/Loss Calculator</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Stock Profit/Loss</h1>
-      <input type="text" id="searchBar" placeholder="Search for a stock" />
-      <ul id="stocksList"></ul>
+    <header>
+      <h1>Check Your Stock Returns</h1>
+      <div id="wrapper">
+        <div>
+          <h2>Find out profit/loss on your stock</h2>
+          <p>
+            <strong>Enter the following details:</strong>
+          </p>
+          <ul>
+            <li>Price at which you bought the stock.</li>
+            <li>No. of quantity</li>
+            <li>Last closing price of stock</li>
+          </ul>
+        </div>
+        <!-- <img src="/bull-image.jpg" alt="" /> -->
+      </div>
+    </header>
 
-      <!-- <button id="searchBtn">Search</button> -->
-      <button class="selected">Select</button>
-
-      <h3 id="displaySelected"></h3>
+    <div>
+      <form>
+        <input
+          type="text"
+          id="cost-price"
+          placeholder="Enter cost price of stock"
+        />
+        <input
+          type="text"
+          id="closing-price"
+          placeholder="Enter last closing price of stock"
+        />
+        <input type="text" id="quantity" placeholder="Enter quantity" />
+        <button id="calculate">Calculate</button>
+      </form>
     </div>
     <script src="app.js"></script>
   </body>

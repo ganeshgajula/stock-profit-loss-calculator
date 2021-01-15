@@ -1,72 +1,30 @@
-// const searchBar = document.querySelector("#searchBar");
-// const submitBtn = document.querySelector("#searchBtn");
+const costPrice = document.querySelector("#cost-price");
+const closingPrice = document.querySelector("#closing-price");
+const quantity = document.querySelector("#quantity");
+const calculate = document.querySelector("#calculate");
 
-const serverUrl =
-  "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=";
+function clickHandler(e) {
+  e.preventDefault();
 
-const apiKey = "MGA2XVI896C34RWQ";
+  const costPriceValue = costPrice.value;
+  const closingPriceValue = closingPrice.value;
+  const quantityValue = quantity.value;
 
-function constructUrl(stockName) {
-  return serverUrl + stockName + "&" + "apikey=" + apiKey;
-  // console.log(finalUrl);
+  const amountInvested = costPriceValue * quantityValue;
+  const returnAmount = closingPriceValue * quantityValue;
+  console.log(amountInvested);
+  console.log(returnAmount);
+  const finalAmount = returnAmount - amountInvested;
+  console.log(finalAmount);
+  const profitPercent = (finalAmount * 100) / amountInvested;
+
+  if (finalAmount > 0) {
+    console.log("Congratulations!! you made a profit of Rs. ", finalAmount);
+    console.log("Profit percent is ", profitPercent);
+  } else {
+    console.log("You suffered a loss of Rs. ", Math.abs(finalAmount));
+    console.log("Loss percent is ", Math.abs(profitPercent));
+  }
 }
 
-// function clickHandler() {
-//   let stockName = searchBar.value;
-//   console.log(stockName);
-
-//   fetch(constructUrl(stockName))
-//     .then((response) => response.json())
-//     .then((json) => console.log(json.bestMatches[1]["1. symbol"]));
-// }
-
-// searchBar.addEventListener("keyup", clickHandler);
-
-const stocksList = document.querySelector("#stocksList");
-const searchBar = document.querySelector("#searchBar");
-let hpCharacters = [];
-
-searchBar.addEventListener("keyup", (event) => {
-  const searchString = event.target.value;
-  // const filteredCharacters = arrayHpCharacters.filter((character) => {
-  //   return (
-  //     character.name.toLowerCase().includes(searchString) ||
-  //     character.house.toLowerCase().includes(searchString)
-  //   );
-  // });
-  // displayCharacters(filteredCharacters);
-  loadCharacters(searchString);
-});
-
-const loadCharacters = async (searchString) => {
-  try {
-    // console.log(stockName);
-    const response = await fetch(constructUrl(searchString));
-    hpCharacters = await response.json();
-    console.log(hpCharacters);
-    let arrayHpCharacters = hpCharacters.bestMatches;
-    displayCharacters(arrayHpCharacters);
-    // console.log(hpCharacters);
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-const displayCharacters = (characters) => {
-  console.log(characters);
-  const htmlString = characters
-    .map((character) => {
-      return `
-    <li class = "character">
-      <h2>${character["1. symbol"]}</h2>
-      <p>House: ${character["2. name"]}</p>
-      <h3> Region: ${character["4. region"]}
-
-    `;
-    })
-    .join("");
-
-  stocksList.innerHTML = htmlString;
-};
-
-loadCharacters();
+calculate.addEventListener("click", clickHandler);
