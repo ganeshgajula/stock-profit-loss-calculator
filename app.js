@@ -1,7 +1,7 @@
 const costPrice = document.querySelector("#cost-price");
 const closingPrice = document.querySelector("#closing-price");
 const quantity = document.querySelector("#quantity");
-// const calculate = document.getElementById("calculate");
+const reset = document.querySelector(".reset");
 let form = document.forms[0];
 const result = document.querySelector("#resultText");
 
@@ -25,6 +25,8 @@ function clickHandler(e) {
   if (finalAmount > 0) {
     result.innerText = `Congratulations!! you made a profit of Rs. ${finalAmount} with a profit percent of ${percent} `;
     result.style.color = "green";
+  } else if (finalAmount === 0) {
+    result.innerText = `Seems like you bought and sold the stock at the same price. Hence, you suffered neither profit nor loss`;
   } else {
     result.innerText = `You suffered a loss of Rs. ${Math.abs(
       finalAmount
@@ -33,4 +35,12 @@ function clickHandler(e) {
   }
 }
 
+function resetHandler() {
+  costPrice.value = "";
+  closingPrice.value = "";
+  quantity.value = "";
+  result.style.display = "none";
+}
+
 form.addEventListener("submit", clickHandler);
+reset.addEventListener("click", resetHandler);
