@@ -1,10 +1,14 @@
 const costPrice = document.querySelector("#cost-price");
 const closingPrice = document.querySelector("#closing-price");
 const quantity = document.querySelector("#quantity");
-const calculate = document.querySelector("#calculate");
+// const calculate = document.getElementById("calculate");
+let form = document.forms[0];
+const result = document.querySelector("#resultText");
 
 function clickHandler(e) {
   e.preventDefault();
+
+  console.log(form);
 
   const costPriceValue = costPrice.value;
   const closingPriceValue = closingPrice.value;
@@ -16,15 +20,17 @@ function clickHandler(e) {
   console.log(returnAmount);
   const finalAmount = returnAmount - amountInvested;
   console.log(finalAmount);
-  const profitPercent = (finalAmount * 100) / amountInvested;
+  const percent = (finalAmount * 100) / amountInvested;
 
   if (finalAmount > 0) {
-    console.log("Congratulations!! you made a profit of Rs. ", finalAmount);
-    console.log("Profit percent is ", profitPercent);
+    result.innerText = `Congratulations!! you made a profit of Rs. ${finalAmount} with a profit percent of ${percent} `;
+    result.style.color = "green";
   } else {
-    console.log("You suffered a loss of Rs. ", Math.abs(finalAmount));
-    console.log("Loss percent is ", Math.abs(profitPercent));
+    result.innerText = `You suffered a loss of Rs. ${Math.abs(
+      finalAmount
+    )} with a loss percent of ${Math.abs(percent)}`;
+    result.style.color = "red";
   }
 }
 
-calculate.addEventListener("click", clickHandler);
+form.addEventListener("submit", clickHandler);

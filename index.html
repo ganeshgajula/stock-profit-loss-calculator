@@ -14,24 +14,54 @@
   </head>
   <body>
     <header>
-      <h1>Check Your Stock Returns</h1>
-      <div id="wrapper">
-        <div>
-          <h2>Find out profit/loss on your stock</h2>
-          <p>
-            <strong>Enter the following details:</strong>
-          </p>
-          <ul>
-            <li>Price at which you bought the stock.</li>
-            <li>No. of quantity</li>
-            <li>Last closing price of stock</li>
-          </ul>
+      <div id="wrapper-container">
+        <div id="wrapper">
+          <div class="wrapper-left">
+            <h1>Find out profit/loss on your stock</h1>
+            <p>
+              <strong>Enter the following details:</strong>
+            </p>
+            <ul>
+              <li>Price at which you bought the stock.</li>
+              <li>Selling price of stock</li>
+              <li>No. of quantity</li>
+            </ul>
+            <form id="stock-form">
+              <input
+                type="number"
+                required
+                min="1"
+                id="cost-price"
+                placeholder="Enter cost price of stock"
+              />
+              <input
+                type="number"
+                required
+                min="1"
+                id="closing-price"
+                placeholder="Enter selling price of stock"
+              />
+              <input
+                type="number"
+                required
+                min="1"
+                id="quantity"
+                placeholder="Enter quantity"
+              />
+              <button type="submit">
+                Calculate <i class="fas fa-arrow-circle-right"></i>
+              </button>
+            </form>
+            <h4 id="resultText"></h4>
+          </div>
+          <div class="wrapper-right">
+            <img src="/finance-new.svg" alt="" />
+          </div>
         </div>
-        <!-- <img src="/bull-image.jpg" alt="" /> -->
       </div>
     </header>
 
-    <div>
+    <!-- <div>
       <form>
         <input
           type="text"
@@ -46,7 +76,7 @@
         <input type="text" id="quantity" placeholder="Enter quantity" />
         <button id="calculate">Calculate</button>
       </form>
-    </div>
+    </div> -->
     <script src="app.js"></script>
   </body>
 </html>
